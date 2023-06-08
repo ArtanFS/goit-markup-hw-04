@@ -6,6 +6,7 @@
   --color-pressed: #404bbf;
   --color-whitebg: #ffffff;
   --color-accent: #e7e9fc;
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -47,8 +48,6 @@ img {
 }
 
 .header {
-  /* padding-top: 24px;
-  padding-bottom: 24px; */
   border-bottom: 1px solid var(--color-accent);
 }
 
@@ -94,6 +93,7 @@ img {
   color: var(--color-dark);
   padding-top: 24px;
   padding-bottom: 24px;
+  transition: color var(--transition);
 }
 
 .header-menu-link:focus,
@@ -114,6 +114,7 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: currentColor;
+  transition: color var(--transition);
 }
 
 .header-adr-link:hover,
@@ -130,6 +131,14 @@ img {
   background-color: var(--color-dark);
   padding-top: 188px;
   padding-bottom: 188px;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/bg_office.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1440px;
 }
 
 .hero-title {
@@ -156,6 +165,7 @@ img {
   padding: 16px 32px;
   margin: 0 auto;
   cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition);
 }
 
 .hero-btn:hover,
@@ -184,6 +194,18 @@ img {
 
 .choose-list-item {
   width: calc((100% - 72px) / 4);
+}
+
+.choose-list-block {
+  padding: 24px 0px;
+  background-color: var(--color-light);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.choose-list-icon {
+  display: block;
+  margin: 0 auto;
 }
 
 .choose-list-title {
@@ -248,6 +270,8 @@ img {
   width: calc((100% -72px) / 4);
   background-color: var(--color-whitebg);
   border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .team-list-container {
@@ -268,6 +292,33 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+  margin-bottom: 8px;
+}
+
+.team-soc {
+  display: flex;
+  gap: 24px;
+}
+
+.team-soc-item {
+  min-width: calc((100% - 72px) / 4);
+}
+
+.team-soc-block {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary-brand);
+  border-radius: 50%;
+  padding: 12px 0;
+}
+
+.team-soc-link {
+  /* display: block; */
+}
+.team-soc-icon {
+  display: block;
+  fill: var(--color-whitebg);
+  margin: 0 auto;
 }
 
 .footer {
@@ -317,6 +368,8 @@ img {
   padding: 12px 24px;
   border: 1px solid var(--color-accent);
   border-radius: 4px;
+  transition: color var(--transition), background-color var(--transition),
+    border var(--transition);
 }
 
 .filter-menu-btn:hover,
