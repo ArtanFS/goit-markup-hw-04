@@ -8,7 +8,8 @@
   --color-whitebg: #ffffff;
   --color-accent: #e7e9fc;
   --color-subtle: #8e8f99;
-  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --color-success: #31d0aa;
+  --transition: 1500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /**-----------Global----------*/
@@ -68,6 +69,8 @@ img {
 
 .header {
   border-bottom: 1px solid var(--color-accent);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -332,7 +335,7 @@ img {
 }
 
 .team-soc-icon {
-  fill: var(--color-whitebg);
+  fill: var(--color-light);
 }
 
 /**-------------Main-S5--Customers-------*/
@@ -362,23 +365,34 @@ img {
 
 .customers-list-item {
   width: calc((100% - 120px) / 6);
-  border: 1px solid var(--color-subtle);
-  border-radius: 4px;
+  /* border: 1px solid var(--color-subtle);
+  border-radius: 4px; */
 }
 
-.customer-item-link {
-}
-
-.customer-item-block {
+.customers-item-block {
   width: 168px;
   height: 88px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--color-subtle);
+  border-radius: 4px;
+  transition: border-color var(--transition);
 }
 
-.customer-item-icon {
+.customers-item-icon {
   fill: var(--color-subtle);
+  transition: fill var(--transition);
+}
+
+.customers-item-link:hover .customers-item-icon,
+.customers-item-link:focus .customers-item-icon {
+  fill: var(--color-pressed);
+}
+
+.customers-item-link:hover .customers-item-block,
+.customers-item-link:focus .customers-item-block {
+  border-color: var(--color-pressed);
 }
 
 /**-------------Footer-------------------*/
@@ -442,9 +456,14 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color var(--transition);
 }
 .foter-soc-icon {
-  fill: var(--color-whitebg);
+  fill: var(--color-light);
+}
+
+.footer-soc-link:hover .footer-soc-block {
+  background-color: var(--color-success);
 }
 
 /**------------Page2-Portfolio--------------*/
@@ -474,7 +493,7 @@ img {
   border: 1px solid var(--color-accent);
   border-radius: 4px;
   transition: color var(--transition), background-color var(--transition),
-    border var(--transition);
+    border var(--transition), box-shadow var(--transition);
 }
 
 .filter-menu-btn:hover,
@@ -482,6 +501,8 @@ img {
   color: var(--color-whitebg);
   background-color: var(--color-pressed);
   border: 1px solid transparent;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .filter-result {
@@ -494,10 +515,17 @@ img {
   width: calc((100% - 48px) / 3);
 }
 
+.filter-result-link:hover .filter-result-container,
+.filter-result-link:focus .filter-result-container {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
 .filter-result-container {
   padding: 32px 16px;
   border: 1px solid var(--color-accent);
   border-top: none;
+  transition: box-shadow var(--transition);
 }
 
 .filter-result-title {
