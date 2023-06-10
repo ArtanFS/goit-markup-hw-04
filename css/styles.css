@@ -11,6 +11,7 @@
   --color-success: #31d0aa;
   --color-modalbg: #fcfcfc;
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-modal: 500ms ease-in;
 }
 
 /**-----------Global----------*/
@@ -122,6 +123,22 @@ img {
 .header-menu-link:focus,
 .header-menu-link:hover {
   color: var(--color-pressed);
+}
+
+.link-active {
+  position: relative;
+  color: var(--color-pressed);
+}
+
+.link-active::after {
+  position: absolute;
+  content: '';
+  height: 4px;
+  width: 100%;
+  left: 0;
+  bottom: -1px;
+  background-color: var(--color-pressed);
+  border-radius: 2px;
 }
 
 .header-adr {
@@ -575,13 +592,17 @@ img {
   width: 100vw;
   height: 100vh;
   background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity var(--transition-modal),
+    visibility var(--transition-modal);
+  /* transition: opacity 1500ms ease-in-out, visibility 500ms ease-in-out; */
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1) rotate(2turn);
+  transition: transform var(--transition-modal);
   width: 408px;
   min-height: 584px;
   padding: 24px;
@@ -598,12 +619,30 @@ img {
   margin-left: auto;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: var(--color-accent);
+  background-color: var(--color-accent);
   cursor: pointer;
+  transition: background-color var(--transition);
 }
 
 .is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -25%) scale(0) rotate(0);
+}
+
+.modal-btn:hover {
+  background-color: var(--color-pressed);
+  border: none;
+}
+
+.modal-btn-close {
+  transition: fill var(--transition);
+}
+
+.modal-btn:hover .modal-btn-close {
+  fill: var(--color-whitebg);
 }
