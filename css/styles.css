@@ -347,9 +347,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color var(--transition);
 }
 
-.team-soc-link {
+.team-soc-link:hover .team-soc-block,
+.team-soc-link:focus .team-soc-block {
+  background-color: var(--color-pressed);
 }
 
 .team-soc-icon {
